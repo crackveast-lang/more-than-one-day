@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#1a1520" />
+<title>For Akriti ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --cream:#F8F5F2;
+  --cream-2:#F1E9E3;
+  --beige:#EFE6DE;
+  --ink:#4A3F3A;
+  --ink-soft:#6E625C;
+  --pink:#C98B94;
+  --pink-deep:#B06A78;
+  --rose:#E7C4C7;
+  --dark:#171019;
+  --dark-2:#241826;
+  --gold:#E8C9A0;
+  --serif:'Playfair Display', serif;
+  --serif-2:'Cormorant Garamond', serif;
+  --body:'Inter', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--body);
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;}
+.serif{font-family:var(--serif);}
+
+/* ---------- generic section ---------- */
+section{
+  position:relative;
+  width:100%;
+  padding:14vh 26px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  min-height:100svh;
+}
+.wrap{width:100%;max-width:620px;margin:0 auto;}
+
+/* ---------- reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity 1.3s ease, transform 1.3s cubic-bezier(.16,.7,.3,1);}
+.reveal.show{opacity:1;transform:none;}
+.reveal.d1{transition-delay:.18s;}
+.reveal.d2{transition-delay:.36s;}
+.reveal.d3{transition-delay:.54s;}
+.reveal.d4{transition-delay:.72s;}
+
+/* ---------- headings ---------- */
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.18;letter-spacing:.2px;}
+.kicker{font-family:var(--body);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--pink-deep);margin-bottom:26px;font-weight:500;}
+.big{font-family:var(--serif);font-size:clamp(2.1rem,8.5vw,3.6rem);line-height:1.22;font-weight:500;}
+.huge{font-family:var(--serif);font-size:clamp(2.6rem,12vw,5rem);line-height:1.1;font-weight:600;}
+p.lead{font-family:var(--serif-2);font-size:clamp(1.35rem,5.5vw,1.8rem);color:var(--ink);line-height:1.5;}
+.soft{color:var(--ink-soft);}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-block;
+  margin-top:40px;
+  padding:16px 34px;
+  border-radius:999px;
+  background:var(--pink-deep);
+  color:#fff;
+  font-family:var(--body);
+  font-size:.98rem;
+  font-weight:500;
+  letter-spacing:.02em;
+  border:none;
+  cursor:pointer;
+  box-shadow:0 10px 30px -10px rgba(176,106,120,.7);
+  transition:transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+.btn:active{transform:scale(.96);}
+.btn.ghost{background:transparent;color:var(--pink-deep);border:1.5px solid var(--rose);box-shadow:none;}
+
+/* ================= LANDING ================= */
+#landing{
+  background:var(--dark);
+  color:#f3ecec;
+  min-height:100svh;
+  overflow:hidden;
+  padding:0;
+}
+.stars{position:absolute;inset:0;overflow:hidden;z-index:0;}
+.star{position:absolute;background:#fff;border-radius:50%;opacity:.7;animation:tw 4s infinite ease-in-out;}
+@keyframes tw{0%,100%{opacity:.15;}50%{opacity:.9;}}
+.landing-photo{
+  position:absolute;inset:0;z-index:0;
+  background-size:cover;background-position:center;
+  filter:blur(22px) brightness(.42) saturate(.9);
+  transform:scale(1.15);opacity:.5;
+}
+.landing-veil{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at center, rgba(23,16,25,.35) 0%, rgba(23,16,25,.82) 70%, rgba(23,16,25,.96) 100%);}
+.landing-inner{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14vh 28px;width:100%;}
+#typeLines{min-height:150px;display:flex;flex-direction:column;justify-content:center;gap:10px;}
+.type-line{font-family:var(--serif);font-size:clamp(1.6rem,6.5vw,2.4rem);font-weight:400;opacity:0;transition:opacity 1s ease;color:#f6eeee;}
+.type-line.on{opacity:1;}
+.type-line .cursor{display:inline-block;width:2px;height:1em;background:var(--rose);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite;}
+@keyframes blink{50%{opacity:0;}}
+#landingBtn{opacity:0;transform:translateY(16px);transition:opacity 1s ease .3s, transform 1s ease .3s;pointer-events:none;}
+#landingBtn.on{opacity:1;transform:none;pointer-events:auto;}
+.scroll-hint{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.4);z-index:2;animation:bob 2.4s infinite ease-in-out;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
+
+/* ================= CHAPTER 1 ================= */
+#truth{background:linear-gradient(180deg,var(--dark) 0%, #2a1d2b 100%);color:#f0e8e8;}
+#truth .soft{color:#c9b8bd;}
+#blank{background:var(--cream);}
+
+/* ================= CHAPTER 2 : why you matter ================= */
+.why-line{padding:20vh 24px;}
+.polaroid{
+  background:#fff;padding:14px 14px 54px;border-radius:4px;
+  box-shadow:0 24px 50px -22px rgba(74,63,58,.5);
+  transform:rotate(-2.2deg);
+  max-width:340px;margin:34px auto 0;
+}
+.polaroid.alt{transform:rotate(2deg);}
+.polaroid img{width:100%;border-radius:2px;aspect-ratio:4/5;object-fit:cover;background:var(--beige);}
+.polaroid .cap{font-family:var(--serif-2);font-size:1.12rem;color:var(--ink-soft);margin-top:16px;font-style:italic;line-height:1.4;}
+
+/* ================= CHAPTER 3 : timeline ================= */
+#story{padding-top:16vh;}
+.memory{margin:9vh auto;max-width:560px;width:100%;}
+.memory .mtitle{font-family:var(--serif);font-size:clamp(1.7rem,7vw,2.5rem);color:var(--pink-deep);margin-bottom:22px;font-weight:500;}
+.frame{
+  background:#fff;padding:12px;border-radius:6px;
+  box-shadow:0 20px 44px -20px rgba(74,63,58,.45);
+}
+.frame img{width:100%;border-radius:3px;aspect-ratio:4/5;object-fit:cover;background:var(--beige);}
+.memory .mtext{font-family:var(--serif-2);font-size:1.25rem;color:var(--ink);margin-top:22px;line-height:1.5;padding:0 6px;}
+.mnum{font-family:var(--body);font-size:.7rem;letter-spacing:.3em;color:var(--pink);margin-bottom:12px;}
+
+/* ================= CHAPTER 4 : love cards ================= */
+#loves{background:linear-gradient(180deg,var(--cream) 0%, var(--cream-2) 100%);}
+.cards{display:flex;flex-direction:column;gap:16px;width:100%;max-width:440px;margin:20px auto 0;}
+.lovecard{
+  background:#fff;border-radius:18px;padding:22px 24px;
+  font-family:var(--serif-2);font-size:1.35rem;color:var(--ink);
+  box-shadow:0 14px 30px -18px rgba(176,106,120,.55);
+  display:flex;align-items:center;gap:14px;text-align:left;line-height:1.35;
+}
+.lovecard .hb{color:var(--pink-deep);font-size:1.1rem;flex-shrink:0;}
+
+/* ================= CHAPTER 5 : hidden notes ================= */
+#stars-ch{background:linear-gradient(180deg,#2a1d2b 0%, var(--dark) 100%);color:#f0e8e8;min-height:100svh;padding:14vh 20px;overflow:hidden;}
+.sky{position:relative;width:100%;max-width:560px;height:min(62vh,540px);margin:34px auto 0;}
+.notestar{
+  position:absolute;width:38px;height:38px;border:none;background:transparent;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  color:var(--gold);filter:drop-shadow(0 0 6px rgba(232,201,160,.8));
+  animation:floaty 5s ease-in-out infinite;transition:transform .3s ease;
+}
+.notestar:active{transform:scale(.8);}
+.notestar.opened{opacity:.32;filter:none;}
+@keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+#notesProgress{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:26px;}
+
+/* note modal */
+#noteModal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:26px;background:rgba(15,10,16,.72);backdrop-filter:blur(6px);}
+#noteModal.on{display:flex;animation:fadein .4s ease;}
+@keyframes fadein{from{opacity:0;}to{opacity:1;}}
+.note-card{
+  background:var(--cream);border-radius:16px;max-width:360px;width:100%;padding:16px;
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.6);transform:translateY(12px);
+  animation:pop .5s cubic-bezier(.16,.7,.3,1) forwards;
+}
+@keyframes pop{to{transform:none;}}
+.note-card img{width:100%;border-radius:10px;aspect-ratio:4/5;object-fit:cover;background:var(--beige);}
+.note-card .ntext{font-family:var(--serif-2);font-size:1.32rem;color:var(--ink);text-align:center;padding:20px 14px 10px;line-height:1.45;font-style:italic;}
+.note-card .nclose{display:block;margin:6px auto 8px;background:var(--pink-deep);color:#fff;border:none;border-radius:999px;padding:11px 30px;font-family:var(--body);font-size:.9rem;cursor:pointer;}
+
+/* ================= CHAPTER 6 : if I could ================= */
+#ifcould{background:var(--cream);}
+#ifcould .line{font-family:var(--serif);font-size:clamp(1.6rem,6.5vw,2.3rem);color:var(--ink-soft);margin:10px 0;}
+#ifcould .final-line{color:var(--pink-deep);}
+
+/* ================= FINAL ================= */
+#final{background:#0f0a10;color:#f2eaea;}
+.final-photo{
+  width:min(78vw,320px);border-radius:10px;margin:0 auto 34px;
+  box-shadow:0 30px 70px -24px rgba(0,0,0,.8);
+  aspect-ratio:4/5;object-fit:cover;background:#241826;
+}
+#final .thanks{font-family:var(--serif-2);font-size:1.4rem;line-height:1.7;color:#e7d9dc;}
+#final .hgd{font-family:var(--serif);font-size:clamp(2rem,9vw,3.2rem);color:#fff;margin-top:30px;}
+#final .late{color:#c6a9b0;font-family:var(--serif-2);font-size:1.2rem;margin-top:10px;}
+
+/* ================= CHOOSE YOU (confetti) ================= */
+#choose{background:linear-gradient(180deg,#1a1119 0%, #2a1d2b 100%);color:#fff;min-height:100svh;display:none;}
+#choose.on{display:flex;}
+#choose .cline{font-family:var(--serif);font-weight:600;font-size:clamp(2.4rem,11vw,4.4rem);line-height:1.12;margin:6px 0;opacity:0;transform:translateY(30px);transition:opacity 1s ease, transform 1s ease;}
+#choose .cline.show{opacity:1;transform:none;}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50;}
+
+/* ================= SECRET / LETTER ================= */
+#secret{background:var(--dark);color:#e9dde0;min-height:70svh;}
+.envelope-wrap{margin:26px auto 0;perspective:1000px;}
+.envelope{
+  position:relative;width:min(84vw,320px);height:min(56vw,214px);margin:0 auto;cursor:pointer;
+  background:linear-gradient(180deg,#e9cfc9,#dcb6b0);border-radius:10px;
+  box-shadow:0 30px 60px -22px rgba(0,0,0,.6);transition:transform .4s ease;
+}
+.envelope:active{transform:scale(.97);}
+.envelope .flap{
+  position:absolute;top:0;left:0;width:100%;height:52%;
+  background:linear-gradient(180deg,#e0bdb6,#d3a49d);
+  clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;
+  transition:transform .6s ease;z-index:3;border-radius:10px 10px 0 0;
+}
+.envelope .seal{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);z-index:4;font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3));transition:opacity .3s;}
+.envelope .hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(74,63,58,.55);z-index:2;}
+.envelope.open .flap{transform:rotateX(180deg);z-index:1;}
+.envelope.open .seal,.envelope.open .hint{opacity:0;}
+
+.letter-sheet{
+  max-width:600px;margin:0 auto;background:var(--cream);color:var(--ink);
+  border-radius:8px;padding:40px 26px 46px;text-align:left;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.6);
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height 1.2s ease, opacity 1s ease, margin .8s ease, padding .8s ease;
+  padding-top:0;padding-bottom:0;margin-top:0;
+}
+.letter-sheet.open{max-height:6000px;opacity:1;padding-top:44px;padding-bottom:48px;margin-top:34px;}
+.letter-sheet p{font-family:var(--serif-2);font-size:1.24rem;line-height:1.72;margin-bottom:18px;white-space:pre-line;}
+.letter-sheet .sign{font-family:var(--serif);font-size:1.5rem;color:var(--pink-deep);}
+
+.end-heart{font-size:1.6rem;color:var(--pink);margin:40px 0 10px;animation:beat 2.4s infinite ease-in-out;}
+@keyframes beat{0%,100%{transform:scale(1);}12%{transform:scale(1.22);}24%{transform:scale(1);}36%{transform:scale(1.18);}}
+.tiny{font-size:.8rem;letter-spacing:.06em;}
+
+/* floating hearts ambient */
+#fadeVeil{position:fixed;inset:0;z-index:80;background:var(--cream);opacity:0;pointer-events:none;transition:opacity .55s ease;}
+#fadeVeil.on{opacity:1;pointer-events:all;}
+.floaty-heart{position:fixed;bottom:-40px;font-size:16px;color:var(--rose);opacity:0;z-index:1;pointer-events:none;animation:rise linear forwards;}
+@keyframes rise{0%{opacity:0;transform:translateY(0) rotate(0);}10%{opacity:.55;}100%{opacity:0;transform:translateY(-115vh) rotate(40deg);}}
+
+@media(min-width:720px){
+  .why-line{padding:24vh 24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== LANDING ===================== -->
+<section id="landing">
+  <div class="stars" id="starfield"></div>
+  <div class="landing-photo" id="landingPhoto"></div>
+  <div class="landing-veil"></div>
+  <div class="landing-inner">
+    <div id="typeLines"></div>
+    <button class="btn" id="landingBtn" onclick="goTo('truth')">Continue ❤️</button>
+  </div>
+  <div class="scroll-hint">scroll</div>
+</section>
+
+<!-- ===================== CHAPTER 1 : THE TRUTH ===================== -->
+<section id="truth">
+  <div class="wrap">
+    <div class="kicker reveal" style="color:var(--rose)">Chapter One</div>
+    <p class="lead reveal d1">Everyone posted stories.<br/>Everyone remembered the date.</p>
+    <p class="lead reveal d2" style="margin-top:22px;color:#f4ecec">I didn't.</p>
+    <p class="lead reveal d3 soft" style="margin-top:22px">And I know that hurt you.<br/>If I could go back, I'd wish you first.</p>
+  </div>
+</section>
+
+<section id="blank">
+  <div class="wrap">
+    <p class="big reveal">But love deserves more<br/>than a 24-hour story.</p>
+    <button class="btn reveal d2" onclick="fadeGo('why')">Let me show you instead →</button>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 2 : WHY YOU MATTER ===================== -->
+<section class="why-line" id="why">
+  <div class="wrap">
+    <div class="kicker reveal">Chapter Two — Why You Matter</div>
+    <p class="huge reveal d1">You aren't special<br/>because you're my<br/>girlfriend.</p>
+  </div>
+</section>
+<section class="why-line">
+  <div class="wrap"><p class="big reveal">You're special because...</p></div>
+</section>
+<div id="whyContainer"></div>
+
+<!-- ===================== CHAPTER 3 : OUR STORY ===================== -->
+<section id="story">
+  <div class="wrap">
+    <div class="kicker reveal">Chapter Three — Our Story</div>
+    <p class="lead reveal d1 soft">Not dates. Not a timeline.<br/>Just the moments I'd never trade.</p>
+  </div>
+  <div id="memoryContainer" style="width:100%;margin-top:6vh"></div>
+</section>
+
+<!-- ===================== CHAPTER 4 : LOVE CARDS ===================== -->
+<section id="loves">
+  <div class="wrap">
+    <div class="kicker reveal">Chapter Four</div>
+    <p class="big reveal d1">Things I'll always<br/>love about you.</p>
+    <div class="cards" id="loveCards"></div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 5 : HIDDEN NOTES ===================== -->
+<section id="stars-ch">
+  <div class="wrap">
+    <div class="kicker reveal" style="color:var(--gold)">Chapter Five — Hidden Notes</div>
+    <p class="lead reveal d1" style="color:#f0e6e6">Little secrets, tucked into the stars.<br/><span style="font-size:1rem;color:#c9b8bd">Tap each one. Open them all.</span></p>
+  </div>
+  <div class="sky" id="sky"></div>
+  <div id="notesProgress" class="reveal">0 of 20 opened</div>
+</section>
+
+<div id="noteModal" onclick="if(event.target===this)closeNote()">
+  <div class="note-card" id="noteCard"></div>
+</div>
+
+<!-- ===================== CHAPTER 6 : IF I COULD ===================== -->
+<section id="ifcould">
+  <div class="wrap">
+    <div class="kicker reveal">Chapter Six</div>
+    <p class="line reveal d1">I can't change August 1.</p>
+    <p class="line reveal d2">I can't post it yesterday.</p>
+    <p class="line reveal d3">I can't undo forgetting.</p>
+    <p class="line reveal d4" style="margin-top:26px">But...</p>
+    <p class="huge reveal d4 final-line" style="margin-top:20px">I can love you<br/>better today.</p>
+  </div>
+</section>
+
+<!-- ===================== FINAL ===================== -->
+<section id="final">
+  <div class="wrap">
+    <img class="final-photo reveal" id="finalPhoto" alt="you" />
+    <p class="thanks reveal d1">Thank you for staying.<br/>For loving me.<br/>For forgiving me.<br/>For choosing me.</p>
+    <p class="hgd reveal d2">Happy Girlfriend Day ❤️</p>
+    <p class="late reveal d3">Late. But with all my heart.</p>
+    <button class="btn reveal d3" onclick="openChoose()" style="margin-top:38px">One Last Thing...</button>
+  </div>
+</section>
+
+<!-- ===================== CHOOSE YOU ===================== -->
+<section id="choose">
+  <div class="wrap">
+    <p class="cline" data-i="0">I'd choose you</p>
+    <p class="cline" data-i="1">again.</p>
+    <p class="cline" data-i="2">tomorrow.</p>
+    <p class="cline" data-i="3">every single time.</p>
+    <button class="btn ghost" id="psBtn" onclick="goTo('secret')" style="margin-top:44px;opacity:0;transition:opacity 1s ease;border-color:rgba(255,255,255,.4);color:#fff">P.S. Don't leave yet ❤️</button>
+  </div>
+</section>
+
+<!-- ===================== SECRET LETTER ===================== -->
+<section id="secret">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--rose)">One last secret</div>
+    <p class="lead" style="color:#e9dde0;margin-bottom:6px">There's something I wrote,<br/>just for you.</p>
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope" onclick="openLetter()">
+        <div class="flap"></div>
+        <div class="seal">❤</div>
+        <div class="hint">tap to open</div>
+      </div>
+    </div>
+    <div class="letter-sheet" id="letterSheet"></div>
+    <div class="end-heart" id="endHeart" style="display:none">❤</div>
+    <p class="tiny soft" id="endNote" style="display:none;color:#b8a7ac">— Sushant</p>
+  </div>
+</section>
+
+<div id="fadeVeil"></div>
+<canvas id="confetti"></canvas>
+
+<script src="data.js?v=7"></script>
+<script>
+/* ---------------- landing: photo + stars + typing ---------------- */
+document.getElementById('landingPhoto').style.backgroundImage = `url('${DATA.landingPhoto}')`;
+
+(function makeStars(){
+  const f = document.getElementById('starfield');
+  for(let i=0;i<70;i++){
+    const s=document.createElement('div');s.className='star';
+    const sz=Math.random()*2.2+0.6;
+    s.style.width=sz+'px';s.style.height=sz+'px';
+    s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=(Math.random()*4)+'s';
+    f.appendChild(s);
+  }
+})();
+
+const typeLines=["Hey beautiful...","Before you scroll...","I need to tell you something."];
+const tl=document.getElementById('typeLines');
+let li=0;
+function typeNext(){
+  if(li>=typeLines.length){
+    document.getElementById('landingBtn').classList.add('on');
+    return;
+  }
+  const el=document.createElement('div');el.className='type-line';
+  const span=document.createElement('span');
+  const cur=document.createElement('span');cur.className='cursor';
+  el.appendChild(span);el.appendChild(cur);
+  tl.appendChild(el);
+  requestAnimationFrame(()=>el.classList.add('on'));
+  const txt=typeLines[li];let ci=0;
+  const iv=setInterval(()=>{
+    span.textContent=txt.slice(0,++ci);
+    if(ci>=txt.length){clearInterval(iv);cur.remove();li++;setTimeout(typeNext,700);}
+  },55);
+}
+setTimeout(typeNext,700);
+
+function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+
+/* soft fade transition, then jump to a section */
+function fadeGo(id){
+  const v=document.getElementById('fadeVeil');
+  v.classList.add('on');
+  setTimeout(()=>{
+    document.getElementById(id).scrollIntoView({behavior:'auto',block:'start'});
+    setTimeout(()=>v.classList.remove('on'),120);
+  },560);
+}
+
+/* ---------------- build chapter 2 (why you matter) ---------------- */
+(function(){
+  const c=document.getElementById('whyContainer');
+  DATA.whyYouMatter.forEach((w,i)=>{
+    const s=document.createElement('section');s.className='why-line';
+    s.innerHTML=`<div class="wrap">
+      <p class="big reveal">Because ${w.text} <span style="color:var(--pink-deep)">❤️</span></p>
+      <div class="polaroid ${i%2?'alt':''} reveal d1">
+        <img src="${w.photo}" alt=""/>
+        <div class="cap">${w.caption}</div>
+      </div></div>`;
+    c.appendChild(s);
+  });
+})();
+
+/* ---------------- build chapter 3 (memories) ---------------- */
+(function(){
+  const c=document.getElementById('memoryContainer');
+  DATA.memories.forEach((m,i)=>{
+    const d=document.createElement('div');d.className='memory reveal';
+    d.innerHTML=`<div class="mnum">${String(i+1).padStart(2,'0')}</div>
+      <div class="mtitle">${m.title}</div>
+      <div class="frame"><img src="${m.photo}" alt=""/></div>
+      <p class="mtext">${m.text}</p>`;
+    c.appendChild(d);
+  });
+})();
+
+/* ---------------- build chapter 4 (love cards) ---------------- */
+(function(){
+  const c=document.getElementById('loveCards');
+  DATA.loveCards.forEach((t,i)=>{
+    const d=document.createElement('div');d.className='lovecard reveal';d.classList.add('d'+((i%3)+1));
+    d.innerHTML=`<span class="hb">❤</span><span>${t}</span>`;
+    c.appendChild(d);
+  });
+})();
+
+/* ---------------- build chapter 5 (hidden notes) ---------------- */
+let opened=0;
+(function(){
+  const sky=document.getElementById('sky');
+  const N=DATA.hiddenNotes.length;
+  // scatter in a rough grid with jitter so none overlap badly
+  const cols=4, rows=Math.ceil(N/cols);
+  DATA.hiddenNotes.forEach((n,i)=>{
+    const b=document.createElement('button');b.className='notestar';b.textContent='⭐';
+    const col=i%cols, row=Math.floor(i/cols);
+    const x=(col+0.5)/cols*100 + (Math.random()*10-5);
+    const y=(row+0.5)/rows*100 + (Math.random()*10-5);
+    b.style.left=Math.max(2,Math.min(92,x))+'%';
+    b.style.top=Math.max(2,Math.min(92,y))+'%';
+    b.style.animationDelay=(Math.random()*4)+'s';
+    b.onclick=()=>openNote(i,b);
+    sky.appendChild(b);
+  });
+  updateProgress();
+})();
+function updateProgress(){
+  document.getElementById('notesProgress').textContent=`${opened} of ${DATA.hiddenNotes.length} opened`;
+}
+function openNote(i,btn){
+  const n=DATA.hiddenNotes[i];
+  if(!btn.classList.contains('opened')){btn.classList.add('opened');opened++;updateProgress();}
+  const card=document.getElementById('noteCard');
+  card.innerHTML=(n.photo?`<img src="${n.photo}" alt=""/>`:'')+
+    `<div class="ntext">${n.note}</div>
+     <button class="nclose" onclick="closeNote()">close</button>`;
+  const m=document.getElementById('noteModal');m.classList.add('on');
+  card.style.animation='none';requestAnimationFrame(()=>card.style.animation='');
+}
+function closeNote(){document.getElementById('noteModal').classList.remove('on');}
+
+/* ---------------- final photo ---------------- */
+document.getElementById('finalPhoto').src=DATA.finalPhoto;
+
+/* ---------------- letter ---------------- */
+(function(){
+  const sheet=document.getElementById('letterSheet');
+  const paras=DATA.letter.trim().split(/\n\s*\n/);
+  const sign=paras.pop();
+  sheet.innerHTML=paras.map(p=>`<p>${p.trim()}</p>`).join('')+
+    `<p class="sign">${sign.replace(/\n/g,'<br/>')}</p>`;
+})();
+let letterOpened=false;
+function openLetter(){
+  const env=document.getElementById('envelope');
+  env.classList.add('open');
+  setTimeout(()=>{
+    document.getElementById('letterSheet').classList.add('open');
+    setTimeout(()=>{
+      document.getElementById('endHeart').style.display='block';
+      document.getElementById('endNote').style.display='block';
+    },900);
+  },450);
+  if(!letterOpened){letterOpened=true;heartRain(14);}
+}
+
+/* ---------------- choose-you section + confetti ---------------- */
+function openChoose(){
+  const sec=document.getElementById('choose');
+  sec.classList.add('on');
+  sec.scrollIntoView({behavior:'smooth'});
+  burstConfetti();
+  const lines=sec.querySelectorAll('.cline');
+  lines.forEach((l,idx)=>setTimeout(()=>l.classList.add('show'),700+idx*900));
+  setTimeout(()=>{document.getElementById('psBtn').style.opacity='1';},700+lines.length*900+400);
+}
+
+/* ---------------- reveal on scroll ---------------- */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target);}});
+},{threshold:0.18,rootMargin:'0px 0px -8% 0px'});
+function observeReveals(){document.querySelectorAll('.reveal:not(.show)').forEach(el=>io.observe(el));}
+observeReveals();
+// re-scan after dynamic build
+setTimeout(observeReveals,60);
+
+/* ---------------- ambient floating hearts ---------------- */
+function heartRain(count){
+  for(let i=0;i<count;i++){
+    setTimeout(()=>{
+      const h=document.createElement('div');h.className='floaty-heart';h.textContent='❤';
+      h.style.left=Math.random()*100+'vw';
+      h.style.fontSize=(Math.random()*16+12)+'px';
+      h.style.animationDuration=(Math.random()*4+6)+'s';
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),11000);
+    },i*260);
+  }
+}
+
+/* ---------------- confetti (hearts + petals) ---------------- */
+const cv=document.getElementById('confetti');const ctx=cv.getContext('2d');
+let cW,cH,parts=[],confActive=false;
+function sizeCv(){cW=cv.width=innerWidth;cH=cv.height=innerHeight;}
+sizeCv();addEventListener('resize',sizeCv);
+const cols=['#C98B94','#B06A78','#E7C4C7','#E8C9A0','#F1D9Dc','#d98c9d'];
+function burstConfetti(){
+  parts=[];
+  for(let i=0;i<130;i++){
+    parts.push({
+      x:Math.random()*cW, y:-20-Math.random()*cH*0.5,
+      s:Math.random()*10+6, vy:Math.random()*2+1.4, vx:Math.random()*1.6-0.8,
+      rot:Math.random()*Math.PI, vr:Math.random()*0.12-0.06,
+      c:cols[Math.floor(Math.random()*cols.length)], heart:Math.random()>0.4
+    });
+  }
+  if(!confActive){confActive=true;requestAnimationFrame(drawConf);}
+}
+function heartPath(x,y,s){
+  ctx.beginPath();
+  ctx.moveTo(x,y+s*0.3);
+  ctx.bezierCurveTo(x,y,x-s*0.5,y,x-s*0.5,y+s*0.3);
+  ctx.bezierCurveTo(x-s*0.5,y+s*0.6,x,y+s*0.8,x,y+s);
+  ctx.bezierCurveTo(x,y+s*0.8,x+s*0.5,y+s*0.6,x+s*0.5,y+s*0.3);
+  ctx.bezierCurveTo(x+s*0.5,y,x,y,x,y+s*0.3);
+  ctx.closePath();ctx.fill();
+}
+function drawConf(){
+  ctx.clearRect(0,0,cW,cH);let alive=false;
+  parts.forEach(p=>{
+    p.y+=p.vy;p.x+=p.vx;p.rot+=p.vr;
+    if(p.y<cH+30)alive=true;
+    ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;
+    if(p.heart)heartPath(0,-p.s*0.4,p.s);
+    else{ctx.fillRect(-p.s*0.3,-p.s*0.3,p.s*0.6,p.s*0.9);}
+    ctx.restore();
+  });
+  if(alive)requestAnimationFrame(drawConf);else{confActive=false;ctx.clearRect(0,0,cW,cH);}
+}
+</script>
+</body>
+</html>
